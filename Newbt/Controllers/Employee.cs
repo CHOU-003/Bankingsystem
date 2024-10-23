@@ -48,9 +48,9 @@ namespace Newbt.Controllers
             }
         }
 
-        public bool Delete(IModel id)
+        public bool Delete(IModel model)
         {
-            EmployeeModel emp = (EmployeeModel)models;
+            EmployeeModel emp = (EmployeeModel)model; 
             try
             {
                 using (SqlConnection connection = _connectionManager.GetConnection())
@@ -70,6 +70,7 @@ namespace Newbt.Controllers
                 return false;
             }
         }
+
 
         public bool Load()
         {
@@ -130,7 +131,7 @@ namespace Newbt.Controllers
                                 password = reader["Password"].ToString(),
                                 role = reader["Role"].ToString()
                             };
-                            return model; // Trả về model nếu tìm thấy
+                            return model;
                         }
                     }
                 }
@@ -167,6 +168,7 @@ namespace Newbt.Controllers
                 return false;
             }
         }
+
         public bool IsExist(object id)
         {
             try
@@ -175,9 +177,9 @@ namespace Newbt.Controllers
                 {
                     string query = "SELECT COUNT(*) FROM EMPLOYEE WHERE ID = @ID";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@ID", id);
+                    command.Parameters.AddWithValue("@ID", id.ToString()); 
                     int count = (int)command.ExecuteScalar();
-                    return count > 0; 
+                    return count > 0;
                 }
             }
             catch (Exception ex)
@@ -186,6 +188,8 @@ namespace Newbt.Controllers
                 return false;
             }
         }
+
+
         public bool Read(Object id)
         {
 

@@ -16,6 +16,11 @@ namespace Newbt.Models
 
         public bool IsValidate()
         {
+            if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(password)
+                || string.IsNullOrWhiteSpace(role))
+            {
+                return false;
+            }
 
             return true;
 

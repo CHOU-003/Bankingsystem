@@ -13,7 +13,6 @@ namespace Newbt.Views
         private Button btnSave;
         private DataGridView dataGridView;
 
-
         private void InitializeComponent()
         {
             txtID = new TextBox();
@@ -27,6 +26,8 @@ namespace Newbt.Views
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             button1 = new Button();
+            label1 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -71,7 +72,7 @@ namespace Newbt.Views
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(91, 34);
             btnSave.TabIndex = 4;
-            btnSave.Text = "Add";
+            btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
@@ -84,7 +85,7 @@ namespace Newbt.Views
             dataGridView.RowHeadersWidth = 51;
             dataGridView.Size = new Size(600, 200);
             dataGridView.TabIndex = 5;
-
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -125,10 +126,36 @@ namespace Newbt.Views
             button1.TabIndex = 6;
             button1.Text = "Delete";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(50, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(282, 25);
+            label1.TabIndex = 7;
+            label1.Text = "THÔNG TIN EMPLOYEE";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(192, 192, 0);
+            button2.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(338, 210);
+            button2.Name = "button2";
+            button2.Size = new Size(104, 34);
+            button2.TabIndex = 8;
+            button2.Text = "Update";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // EmployeeView
             // 
             ClientSize = new Size(932, 500);
+            Controls.Add(button2);
+            Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(dataGridView);
             Controls.Add(txtID);
